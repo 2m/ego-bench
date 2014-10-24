@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ego Bench</title>
+  <meta charset="utf-8" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" type="text/css" href="http://fastly.ink.sapo.pt/3.1.1/css/ink.css"> <!-- inks css file -->
+  <script type="text/javascript" src="http://fastly.ink.sapo.pt/3.1.1/js/ink-all.js"></script> <!-- inks js bundle -->
+
+  <style>
+  .main {
+    width: 800px;
+    margin: auto;
+  }
+
+  .highlight {
+    padding: 1em;
+    background-color: #eeebe5;
+    margin-bottom: 1em;
+  }
+
+  .highlight p {
+    text-transform: uppercase;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 0em;
+  }
+
+  .highlight pre {
+    white-space: pre-wrap;
+    font-size: 0.6em;
+  }
+
+  :target {
+    -webkit-animation: target-fade 1s;
+    -moz-animation: target-fade 1s;
+    -o-animation: target-fade 1s;
+    animation: target-fade 1s;
+  }
+
+  @-webkit-keyframes target-fade {
+    from { background-color: #bbb; }
+    to { background-color: transparent; }
+  }
+
+  @-moz-keyframes target-fade {
+    from { background-color: #bbb; }
+    to { background-color: transparent; }
+  }
+
+  @-o-keyframes target-fade {
+    from { background-color: #bbb; }
+    to { background-color: transparent; }
+  }
+
+  @keyframes target-fade {
+    from { background-color: #bbb; }
+    to { background-color: transparent; }
+  }
+  </style>
+</head>
+<body>
+
+<div class="main">
+  <div class="highlight">
+    <p>Results</p>
+    <table class="ink-table">
+      <thead>
+        <tr>
+          <th>computer</th>
+          <th>akka test:compile<sup><a href="#akka-test-compile">[↓]</a></sup></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>martynas-tina<sup><a href="#martynas-tina">[↓]</a></sup></td>
+          <td>320 ms</td>
+        </tr>
+        <tr>
+          <td>martynas-fortuna<sup><a href="#martynas-fortuna">[↓]</a></sup></td>
+          <td>120 ms</td>
+        </tr>
+        <tr>
+          <td>robertas</td>
+          <td>237 ms</td>
+        </tr>
+        <tr>
+          <td>viktoras</td>
+          <td>280 ms</td>
+        </tr>
+        <tr>
+          <td>vilius</td>
+          <td>177 ms</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <p>Tests</p>
+    <table class="ink-table">
+      <tbody>
+        <tr>
+          <td id="akka-test-compile">
+            <pre>
+git clone git@github.com:akka/akka.git
+
+/usr/lib/jvm/java-8-openjdk/jre/bin/java -Xmx2g -Xms2g -Xss2m -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+UseCompressedOops -XX:MetaspaceSize=512M -jar /usr/share/java/sbt/sbt-launch.jar
+
+test:compile
+
+clean
+
+test:compile
+            </pre>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="highlight">
+    <p>Hardware</p>
+    <table class="ink-table">
+      <tbody>
+        <tr>
+          <td id="martynas-tina">
+            <pre>
+Intel(R) Core(TM) i7-3520M CPU @ 2.90GHz, 4 threads, 8GB RAM
+
+> hdparm -t /dev/sda2
+Timing buffered disk reads: 1296 MB in  3.00 seconds = 431.95 MB/sec
+
+> hdparm -T /dev/sda2
+Timing cached reads:   20082 MB in  2.00 seconds = 10049.79 MB/sec
+            </pre>
+          </td>
+        </tr>
+        <tr>
+          <td id="martynas-fortuna">
+            <pre>
+Intel(R) Core(TM) i7-4790K CPU @ 4.00GHz, 8 threads, 32GB RAM
+
+> hdparm -t /dev/sdc2
+Timing buffered disk reads: 3290 MB in  3.00 seconds = 1096.07 MB/sec
+
+> hdparm -T /dev/sdc2
+Timing cached reads:   34896 MB in  2.00 seconds = 17468.18 MB/sec
+            </pre>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+</body>
+</html>
