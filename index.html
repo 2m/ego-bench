@@ -96,7 +96,7 @@
           <td>237 s</td>
         </tr>
         <tr>
-          <td>viktoras</td>
+          <td>viktoras <sup><a href="#viktoras">[↓]</a></sup></td>
           <td>280 s</td>
         </tr>
         <tr>
@@ -166,6 +166,15 @@ Timing buffered disk reads: 3290 MB in  3.00 seconds = 1096.07 MB/sec
 
 > hdparm -T /dev/sdc2
 Timing cached reads:   34896 MB in  2.00 seconds = 17468.18 MB/sec
+            </pre>
+        </tr>
+        <tr>
+          <td id="viktoras">
+            <pre>
+Laptop with Intel(R) Core(TM) i7-3610QM CPU @ 2.30GHz, 8 threads
+
+hdparm -t /dev/sda1
+Timing buffered disk reads: 916 MB in  3.00 seconds = 304.88 MB/sec
             </pre>
         </tr>
         <tr>
