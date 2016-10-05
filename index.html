@@ -227,7 +227,19 @@ hdparm -T /dev/nvme0n1p4
         <tr>
           <td id="johannes">
             <pre>
+linux-onlineshop.de Tuxedo Book BX1501
+            
+Intel(R) Core(TM) i7-3840QM CPU @ 2.80GHz
 
+hdparm -t /dev/sda
+
+/dev/sda:
+ Timing buffered disk reads: 878 MB in  3.00 seconds = 292.42 MB/sec
+
+hdparm -T /dev/sda
+
+/dev/sda:
+ Timing cached reads:   25424 MB in  2.00 seconds = 12725.11 MB/sec
             </pre>
         </tr>
       </tbody>
