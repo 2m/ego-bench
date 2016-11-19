@@ -92,6 +92,10 @@
           <td>120 s</td>
         </tr>
         <tr>
+          <td>martynas-donata <sup><a href="#martynas-donata">[↓]</a></sup></td>
+          <td>185 s</td>
+        </tr>
+        <tr>
           <td>robertas</td>
           <td>237 s</td>
         </tr>
@@ -134,7 +138,9 @@ git clone git@github.com:akka/akka.git
 
 git co 73406184ed20a2224a7c64cd8788e6c7578606d9
 
-/usr/lib/jvm/java-8-openjdk/jre/bin/java -Xmx2g -Xms2g -Xss2m -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+UseCompressedOops -XX:MetaspaceSize=512M -jar /usr/share/java/sbt/sbt-launch.jar
+/usr/lib/jvm/java-8-openjdk/jre/bin/java -Xmx2g -Xms2g -Xss2m -XX:ReservedCodeCacheSize=256m -XX:+TieredCompilation -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -XX:+UseCompressedOops -XX:MetaspaceSize=512M -Dakka.scaladoc.diagrams=false -jar /usr/share/java/sbt/sbt-launch.jar
+
+publishLocal
 
 test:compile
 
@@ -174,6 +180,18 @@ Timing buffered disk reads: 3290 MB in  3.00 seconds = 1096.07 MB/sec
 
 > hdparm -T /dev/sdc2
 Timing cached reads:   34896 MB in  2.00 seconds = 17468.18 MB/sec
+            </pre>
+        </tr>
+        <tr>
+          <td id="martynas-donata">
+            <pre>
+Intel(R) Core(TM) i7-7500U CPU @ 2.70GHz, 4 threads, 16GB RAM
+
+> hdparm -t /dev/mapper/cryptroot
+Timing buffered disk reads: 2592 MB in  3.00 seconds = 863.67 MB/sec
+
+> hdparm -T /dev/mapper/cryptroot
+Timing cached reads:   20830 MB in  2.00 seconds = 10424.41 MB/sec
             </pre>
         </tr>
         <tr>
