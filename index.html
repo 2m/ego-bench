@@ -92,6 +92,10 @@
           <td>120 s</td>
         </tr>
         <tr>
+          <td>martynas-fortuna-5950x <sup><a href="#martynas-fortuna-5950x">[↓]</a></sup></td>
+          <td>81 s</td>
+        </tr>
+        <tr>
           <td>martynas-donata <sup><a href="#martynas-donata">[↓]</a></sup></td>
           <td>185 s</td>
         </tr>
@@ -180,6 +184,18 @@ Timing buffered disk reads: 3290 MB in  3.00 seconds = 1096.07 MB/sec
 
 > hdparm -T /dev/sdc2
 Timing cached reads:   34896 MB in  2.00 seconds = 17468.18 MB/sec
+            </pre>
+        </tr>
+        <tr>
+          <td id="martynas-fortuna-5950x">
+            <pre>
+AMD Ryzen 9 5950X 16-Core Processor
+
+> hdparm -t /dev/nvme1n1 
+Timing buffered disk reads:  14 MB in  0.01 seconds = 2278.28 MB/sec
+
+> hdparm -T /dev/nvme1n1 
+Timing cached reads:   51992 MB in  2.00 seconds = 26059.31 MB/sec
             </pre>
         </tr>
         <tr>
